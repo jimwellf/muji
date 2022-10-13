@@ -1,0 +1,19 @@
+<header class="d-flex justify-content-start py-3 border-bottom">
+  <div class="container d-flex flex-wrap justify-content-center">
+    <a routerLink="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+      <span class="fs-4">MUJI</span>
+    </a>
+  </div>
+</header>
+
+<nav class="p-3 border-bottom d-flex justify-content-between">
+  <div class="container d-flex justify-content-lg-evenly">
+    <a routerLink="/catalog" routerLinkActive = "active"  [routerLinkActiveOptions]="{exact:true}" class="border rounded-4 p-2 nav-link px-2 link-dark">Catalog</a>
+
+    <input type="search" class="form-control" placeholder="Search products">
+
+    <a routerLink="/cart" routerLinkActive = "active" class="border rounded-4 p-2 nav-link px-2 link-dark">Cart</a>
+    <a routerLink="/wishlist" routerLinkActive = "active" class="border rounded-4 p-2 nav-link px-2 link-dark">Wish</a>
+    <a routerLink="/profile" routerLinkActive = "active" class="border rounded-4 p-2 nav-link px-2 link-dark">Profile</a>
+  </div>
+</nav>
