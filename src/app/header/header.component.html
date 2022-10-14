@@ -1,16 +1,19 @@
 <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" routerLink="/"> <img src="/assets/muji.png" style="width: 12rem;" alt="MUJI"></a>
+    <a class="navbar-brand mx-2" routerLink="/"> <img src="/assets/muji.png" style="width: 12rem;" alt="MUJI"></a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+    <button class="navbar-toggler mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <input class="form-control my-2" type="search" placeholder="Search">
+    <input class="form-control m-2" type="search" placeholder="Search">
 
     <div class="collapse navbar-collapse" id="navbarResponsive">
 
-      <ul class="navbar-nav ms-auto">
+      <ul class="navbar-nav mx-2">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/catalog">Catalog</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="/cart">Cart</a>
         </li>
