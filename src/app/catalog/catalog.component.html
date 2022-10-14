@@ -1,16 +1,58 @@
-<div id="secondslides" class="carousel carousel-dark carousel-fade" data-bs-ride="carousel">
-  <div class="carousel-inner">
+<div class="container-fluid">
+  <div class="row row-cols-2">
 
-    <div class="carousel-item active">
+    <a routerLink="/clothing">
       <div class="card-wrapper">
         <div class="card">
-          <div class="image-wrapper">
-            <a routerLink="/catalog" ><img src="/assets/products/labo-wool-cardigan.jpg" alt="..."> </a>
-          </div>
           <div class="card-body">
-            <a routerLink="/catalog" class="text-decorastion-none text-secondary"><p>Labo Wool Cardigan</p></a>
-            <p>€ 80.00</p>
+            <p class="text-secondary">Clothing</p>
+          </div>
+          <div class="image-wrapper">
+            <img src="/assets/products/labo-wool-cardigan.jpg" alt="Clothing">
           </div>
         </div>
+      </div>
+    </a>
 
+    <a routerLink="/home">
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="card-body">
+            <p class="text-secondary">Home</p>
+          </div>
+          <div class="image-wrapper">
+            <img src="/assets/products/labo-wool-cardigan.jpg" alt="Home">
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a routerLink="/stationary">
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="card-body">
+            <p class="text-secondary">Stationary</p>
+          </div>
+          <div class="image-wrapper">
+            <img src="/assets/products/labo-wool-cardigan.jpg" alt="Stationary">
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <a routerLink="/" class="disabled">
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="card-body">
+            <p class="text-secondary">Others</p>
+          </div>
+          <div class="image-wrapper">
+            <img src="/assets/products/labo-wool-cardigan.jpg" alt="Others">
+          </div>
+        </div>
+      </div>
+    </a>
   </div>
+</div>
+
+

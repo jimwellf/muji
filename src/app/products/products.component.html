@@ -1,0 +1,18 @@
+<ngb-carousel>
+  <ng-template *ngFor="let product of products" ngbSlide>
+    <div class="row mx-lg-n1">
+      <div class="col-2 px-lg-1" *ngFor="let product of products">
+        <img class="img-fluid" src="/assets/products/labo-wool-cardigan.jpg" />
+      </div>
+    </div>
+  </ng-template>
+</ngb-carousel>
+
+<button class="carousel-control-prev secondcontrol-prev" type="button" data-bs-target="#secondslides" data-bs-slide="prev">
+  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next secondcontrol-next" type="button" data-bs-target="#secondslides" data-bs-slide="next">
+  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  <span class="visually-hidden">Next</span>
+</button>
