@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 import { Product } from './data/product.data';
 
 @Injectable({
@@ -26,9 +27,27 @@ export class ProductsService {
     {id:"015", name:"Recycled Paper Pocket Notebook", category:"stationary", slug:"recycled-paper-pcocket-notebook", description:"A simple notebook made with the same bookbinding.", image:"recycled-paper-pocket-notebook.jpg", price:2.90},
   ]
 
+  public emitter = new Subject<Product[]>()
+
   private _cart: Product[] = []
 
-  constructor() { }
+  public observable: Observable<number>
+
+  constructor() {
+    this.observable = new Observable(subscribe => {
+      let count = 0
+      setInterval(() => {
+        subscribe.next(count)
+        count++
+        if(count >= 10) {
+          subscribe.complete()
+        }
+        if(count > 7) {
+          subscribe.error(new Error("Stramegaiper errore"))
+        }
+      }, 1000)
+    })
+  }
 
   addToCart(product: Product) {
     this._cart.push(product)
@@ -40,6 +59,18 @@ export class ProductsService {
 
   searchProduct(slug: string) {
     return this._products.find(p => p.slug === slug)
+  }
+
+  addProducts() {
+    const newProducts = [
+      {id:"300", name:"Pack Notebook Set", category:"stationary", slug:"pack-notebook-set", description:"A 5 piece set of notebooks in B5 size for note taking. ", image:"pack-notebook-set.jpg", price:2000},
+      {id:"301", name:"Pack Notebook Set", category:"stationary", slug:"pack-notebook-set", description:"A 5 piece set of notebooks in B5 size for note taking. ", image:"pack-notebook-set.jpg", price:2000},
+      {id:"302", name:"Pack Notebook Set", category:"stationary", slug:"pack-notebook-set", description:"A 5 piece set of notebooks in B5 size for note taking. ", image:"pack-notebook-set.jpg", price:2000}
+    ]
+
+    this._products = [...this._products, ...newProducts]
+
+    this.emitter.next(this._products)
   }
 
   get products() {

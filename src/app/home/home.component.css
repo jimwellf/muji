@@ -30,7 +30,7 @@
 }
 
 .jumbotron {
-  padding: 1rem;
+  padding: .5rem;
   border-radius: 0;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .card:hover {
-  box-shadow: 5px 9px 11px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 9px 11px px rgba(0, 0, 0, 0.2);
   transition: 1s;
 }
 
@@ -70,8 +70,10 @@
   padding: 1em;
 }
 
-@media (max-width:992px) {
-
+@media (max-width:576px) {
+  .card:not(:first-child) {
+    display: none;
+  }
 }
 
 @media (max-width:768px) {
@@ -100,10 +102,4 @@
     transition: opacity 1s ease;
   }
 
-}
-
-@media (max-width:576px) {
-  .card:not(:first-child) {
-    display: none;
-  }
 }

@@ -6,7 +6,35 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <input class="form-control m-2" type="search" placeholder="Search">
+    <div class="container-fluid p-2">
+      <ng-autocomplete
+        [data] = "products"
+        [searchKeyword] = "keyword"
+        [itemTemplate] = "itemTemplate"
+        [notFoundTemplate] = "notFoundTemplate"
+        placeholder = "Search">
+      </ng-autocomplete>
+
+      <ng-template #itemTemplate let-item>
+        <a [routerLink]="'/catalog/'+item.category+'/'+item.slug">
+          <div class="d-flex">
+            <div>
+              <img [src]="'/assets/products/'+item.category+'/'+item.image" alt="" width="60rem">
+            </div>
+            <div>
+              <span>{{ item.name }}</span>
+              <span>{{ item.price }}</span>
+            </div>
+
+          </div>
+        </a>
+      </ng-template>
+
+      <ng-template #notFoundTemplate let-notFound>
+        <div [innerHTML]="notFound"></div>
+      </ng-template>
+
+    </div>
 
     <div class="collapse navbar-collapse" id="navbarResponsive">
 
