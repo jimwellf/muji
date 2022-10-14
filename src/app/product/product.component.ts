@@ -9,16 +9,24 @@ import { ProductsService } from '../products.service';
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css']
 })
-export class ProductComponent implements OnInit, OnDestroy {
+export class ProductComponent {
 
   product?: Product
+  cartProduct?: Product
   sub?: Subscription
 
-  constructor(private route: ActivatedRoute, private productService: ProductsService, private router: Router) {
+  products:Product[] = []
+
+  constructor(private route: ActivatedRoute, private productsService: ProductsService) {
+    const { slug } = route?.snapshot.params ?? {}
+    this.product =  productsService.searchProduct(slug)
   }
 
-  ngOnInit(): void {}
+  onAddCart() {
+    if(this.product != null) {
+      this.cartProduct = {id: this.product.id, name: this.product.name, category: this.product.category, slug: this.product.slug, description: this.product.description, image: this.product.image, price: this.product.price }
+    }
 
-  ngOnDestroy(): void {}
-
+    this.productsService.addToCart(this.cartProduct as Product)
+  }
 }

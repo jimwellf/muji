@@ -1,7 +1,45 @@
-<div>
-  <ul>
-    <li>{{product?.name}}</li>
-    <li>{{product?.price}}</li>
-    <li>{{product?.slug}}</li>
-  </ul>
+<div class="container-fluid mt-5">
+  <div class="row">
+
+    <div class="col-md-5">
+      <div id="productImg" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <div class="carousel-inner">
+
+          <div class="carousel-item active">
+            <img [src]="'/assets/products/'+ product?.category + '/' + product?.image" [alt]="product?.name" class="mx-5">
+          </div>
+
+          <div class="carousel-item active">
+            <img [src]="'/assets/products/'+ product?.category + '/' + product?.image" [alt]="product?.name" class="mx-5">
+          </div>
+
+          <div class="carousel-item active">
+            <img [src]="'/assets/products/'+ product?.category + '/' + product?.image" [alt]="product?.name" class="mx-5">
+          </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#productImg" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#productImg" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+
+      </div>
+    </div>
+
+    <div class="col-md-7">
+      <h5 class="mt-5"> {{ product?.name }}</h5>
+      <p class="text-secondary"> {{ product?.price }}</p>
+      <p class="text-secondary"> {{ product?.description }}</p>
+
+      <div class="d-flex">
+        <input class="form-control text-center me-3" type="num" value="1" style="max-width: 3rem">
+        <button class="btn btn-secondary" type="button" (click)="onAddCart()"> Add to cart </button>
+    </div>
+  </div>
 </div>

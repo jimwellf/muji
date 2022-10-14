@@ -16,14 +16,14 @@
       </ng-autocomplete>
 
       <ng-template #itemTemplate let-item>
-        <a [routerLink]="'/catalog/'+item.category+'/'+item.slug">
+        <a [routerLink]="'/' + item.category + '/' + item.slug">
           <div class="d-flex">
             <div>
-              <img [src]="'/assets/products/'+item.category+'/'+item.image" alt="" width="60rem">
+              <img [src]="'/assets/products/' + item.category + '/' + item.image" [alt]="item.name" width="60rem">
             </div>
-            <div>
-              <span>{{ item.name }}</span>
-              <span>{{ item.price }}</span>
+            <div class="d-flex flex-direction-column">
+              <p>{{ item.name }}</p>
+              <!-- <p>{{ item.price }}</p> -->
             </div>
 
           </div>
@@ -46,10 +46,10 @@
           <a class="nav-link" routerLink="/cart">Cart</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/wishlist">Wish</a>
+          <a class="nav-link disabled" routerLink="/wishlist">Wish</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/profile">Profile</a>
+          <a class="nav-link disabled" routerLink="/profile">Profile</a>
         </li>
       </ul>
 

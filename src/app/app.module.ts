@@ -18,6 +18,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProductComponent } from './product/product.component';
 
 import { ArrayFilterPipe } from './array-filter.pipe';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ArrayFilterPipe } from './array-filter.pipe';
     SignupComponent,
     ProductsComponent,
     ProductComponent,
-    ArrayFilterPipe
+    ArrayFilterPipe,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
