@@ -42,7 +42,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    AutocompleteLibModule
+    AutocompleteLibModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
