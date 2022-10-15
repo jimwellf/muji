@@ -8,11 +8,13 @@
 
     <div class="container-fluid p-2">
       <ng-autocomplete
+        #searchbar
         [data] = "products"
         [searchKeyword] = "keyword"
         [itemTemplate] = "itemTemplate"
         [notFoundTemplate] = "notFoundTemplate"
-        placeholder = "Search">
+        placeholder = "Search"
+        >
       </ng-autocomplete>
 
       <ng-template #itemTemplate let-item>
@@ -23,7 +25,6 @@
             </div>
             <div class="d-flex flex-direction-column">
               <p>{{ item.name }}</p>
-              <p>{{ item.price }}</p>
             </div>
 
           </div>

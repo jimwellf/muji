@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Product } from '../data/product.data';
 import { ProductsService } from '../products.service';
@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
 
   keyword = 'name';
   search = ""
+  @ViewChild('searchbar') searchbar: any
 
   products:Product[] = []
 
@@ -19,4 +20,5 @@ export class HeaderComponent implements OnInit {
    }
 
   ngOnInit(): void { }
+
 }
