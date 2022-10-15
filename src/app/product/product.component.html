@@ -1,5 +1,6 @@
-<div class="container-fluid mt-5">
-  <div class="row">
+<div class="container-fluid">
+
+  <div class="row d-flex justify-content-center">
 
     <div class="col-md-5">
       <div id="productImg" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -7,15 +8,7 @@
         <div class="carousel-inner">
 
           <div class="carousel-item active">
-            <img [src]="'/assets/products/'+ product?.category + '/' + product?.image" [alt]="product?.name" class="mx-5">
-          </div>
-
-          <div class="carousel-item active">
-            <img [src]="'/assets/products/'+ product?.category + '/' + product?.image" [alt]="product?.name" class="mx-5">
-          </div>
-
-          <div class="carousel-item active">
-            <img [src]="'/assets/products/'+ product?.category + '/' + product?.image" [alt]="product?.name" class="mx-5">
+            <img [src]="'/assets/products/'+ product?.category + '/' + product?.image" [alt]="product?.name" class="img-fluid">
           </div>
 
         </div>
@@ -32,14 +25,22 @@
       </div>
     </div>
 
-    <div class="col-md-7">
-      <h5 class="mt-5"> {{ product?.name }}</h5>
-      <p class="text-secondary"> {{ product?.price }}</p>
-      <p class="text-secondary"> {{ product?.description }}</p>
+    <div class="col-md-4 d-flex align-items-center">
 
-      <div class="d-flex">
-        <input class="form-control text-center me-3" type="num" value="1" style="max-width: 3rem">
-        <button class="btn btn-secondary" type="button" (click)="onAddCart()"> Add to cart </button>
+        <div>
+          <h5 class="mt-5"> {{ product?.name }}</h5>
+          <p class="text-secondary"> {{ product?.description }}</p>
+
+          <p class="text-secondary my-5"> {{ product?.price }} €</p>
+
+          <div class="d-flex">
+            <input class="form-control text-center me-3" type="num" value="1" style="max-width: 3rem">
+            <button class="btn btn-secondary" type="button" (click)="onAddCart()"> Add to cart </button>
+          </div>
+        </div>
+
     </div>
+
   </div>
+
 </div>
