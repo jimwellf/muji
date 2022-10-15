@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -45,7 +45,8 @@ import { ProductFilterPipe } from './product-filter.pipe';
     AppRoutingModule,
     FormsModule,
     AutocompleteLibModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
