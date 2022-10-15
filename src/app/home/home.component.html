@@ -73,6 +73,7 @@
 
 
     <div class="carousel-item active">
+
       <div class="card-wrapper">
         <div class="card">
           <div class="image-wrapper">
@@ -102,6 +103,7 @@
             <a routerLink="/catalog" class="text-decoration-none text-secondary"><p>Labo Wool Sweater</p></a>
             <p>€ 80.00</p>
           </div>
+
         </div>
       </div>
     </div>
@@ -137,6 +139,7 @@
             <p>€ 80.00</p>
           </div>
         </div>
+
       </div>
     </div>
 
@@ -151,5 +154,48 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
+
+</div>
+
+<div>
+
+  <ngb-carousel class="carousel carousel-wrapper carousel-fade">
+    <ng-template ngbSlide *ngFor="let product of products" class="carousel-inner secondcarousel-inner">
+
+      <div class="card-wrapper">
+        <div class="card">
+          <div class="image-wrapper">
+            <a routerLink="/catalog"><img src="/assets/products/labo-wool-cardigan.jpg" alt="..."> </a>
+          </div>
+          <div class="card-body">
+            <a routerLink="/catalog" class="text-decorastion-none text-secondary"><p>Labo Wool Cardigan</p></a>
+            <p>€ 80.00</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="image-wrapper">
+            <a routerLink="/catalog"><img src="/assets/products/labo-wool-knitvest.jpg" alt="..."> </a>
+          </div>
+          <div class="card-body">
+            <a routerLink="/catalog" class="text-decoration-none text-secondary"><p>Labo Wool Knit Vest</p></a>
+            <p>€ 50.00</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="image-wrapper">
+            <a routerLink="/catalog"><img src="/assets/products/labo-wool-sweater.jpg" alt="..."> </a>
+          </div>
+          <div class="card-body">
+            <a routerLink="/catalog" class="text-decoration-none text-secondary"><p>Labo Wool Sweater</p></a>
+            <p>€ 80.00</p>
+          </div>
+
+        </div>
+      </div>
+
+    </ng-template>
+  </ngb-carousel>
 
 </div>
