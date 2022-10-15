@@ -30,13 +30,8 @@
         <div>
           <h5 class="mt-5"> {{ product?.name }}</h5>
           <p class="text-secondary"> {{ product?.description }}</p>
-
           <p class="text-secondary my-5"> {{ product?.price }} €</p>
-
-          <div class="d-flex">
-            <input class="form-control text-center me-3" type="num" value="1" style="max-width: 3rem">
-            <button class="btn btn-secondary" type="button" (click)="onAddCart()"> Add to cart </button>
-          </div>
+          <button class="btn btn-secondary" type="button" (click)="onAddCart()"> Add to cart </button>
         </div>
 
     </div>
