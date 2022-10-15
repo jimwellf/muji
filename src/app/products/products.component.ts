@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../data/product.data';
 import { ProductsService } from '../products.service';
 
@@ -8,21 +8,19 @@ import { ProductsService } from '../products.service';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent {
+export class ProductsComponent implements OnInit{
 
-  keyword = 'name';
-  search = ""
-
+  product?: Product
   products:Product[] = []
+  productCategory: string
 
-  constructor(private productsService: ProductsService, private router: Router) {
+  constructor(private route: ActivatedRoute, private productsService: ProductsService, private router: Router) {
     this.products = productsService.products
+    this.productCategory = this.route.snapshot.paramMap.get('category') as string
    }
 
-  @Output()
-  searchTextChanged: EventEmitter<string> = new EventEmitter<string>()
+   ngOnInit(): void {
+      console.log(this.productCategory);
+   }
 
-  onSearchTextChanged() {
-    this.searchTextChanged.emit(this.search)
-  }
 }

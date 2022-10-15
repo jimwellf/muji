@@ -14,14 +14,17 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 
 const routes: Routes = [
   {path:"", component: HomeComponent},
-  {path:"cart", component: CartComponent},
-  {path:"wishlist", component: WishlistComponent},
-  {path:"profile", component: ProfileComponent},
   {path:"catalog", component: CatalogComponent},
+
+  {path:"cart", component: CartComponent},
   {path:"login", component: LoginComponent},
   {path:"signup", component: SignupComponent},
+  {path:"wishlist", component: WishlistComponent},
+  {path:"profile", component: ProfileComponent},
+
   {path:":category", component: ProductsComponent},
   {path:":category/:slug", component: ProductComponent},
+
   {path:"page-not-found", component: PagenotfoundComponent},
   {path:"**", redirectTo: "page-not-found"},
 ];

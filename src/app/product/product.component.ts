@@ -17,7 +17,7 @@ export class ProductComponent {
 
   products:Product[] = []
 
-  constructor(private route: ActivatedRoute, private productsService: ProductsService) {
+  constructor(private route: ActivatedRoute, private productsService: ProductsService, private router: Router) {
     const { slug } = route?.snapshot.params ?? {}
     this.product =  productsService.searchProduct(slug)
   }
