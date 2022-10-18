@@ -1,8 +1,20 @@
 <div class="container mt-5">
   <main>
 
-    <div class="row g-5">
-      <div class="col-md-5 col-lg-4 order-md-last">
+    <div class="row g-5" >
+
+      <div class="col-md-5 col-lg-4 order-md-last" *ngIf="productsCart.length == 0">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span>Your cart is empty</span>
+        </h4>
+
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <button type="button" class="btn btn-secondary" routerLink="/catalog">Shop now</button>
+      </div>
+
+      </div>
+
+      <div class="col-md-5 col-lg-4 order-md-last" *ngIf="productsCart.length > 0">
 
         <h4 class="d-flex justify-content-between align-items-center mb-3">
           <span class="text-secondary">Your order</span>
@@ -90,15 +102,15 @@
 
           <div class="my-3">
             <div class="form-check">
-              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked required>
+              <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked>
               <label class="form-check-label" for="credit">Credit card</label>
             </div>
             <div class="form-check">
-              <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required>
+              <input id="debit" name="paymentMethod" type="radio" class="form-check-input">
               <label class="form-check-label" for="debit">Debit card</label>
             </div>
             <div class="form-check">
-              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required>
+              <input id="paypal" name="paymentMethod" type="radio" class="form-check-input">
               <label class="form-check-label" for="paypal">PayPal</label>
             </div>
           </div>
@@ -106,7 +118,7 @@
           <div class="row gy-3">
             <div class="col-md-6">
               <label for="cc-name" class="form-label">Name on card</label>
-              <input type="text" class="form-control" id="cc-name" placeholder="" required>
+              <input type="text" class="form-control" id="cc-name" placeholder="" formControlName="cardName">
               <small class="text-muted">Full name as displayed on card</small>
               <div class="invalid-feedback">
                 Name on card is required
@@ -115,7 +127,7 @@
 
             <div class="col-md-6">
               <label for="cc-number" class="form-label">Credit card number</label>
-              <input type="text" class="form-control" id="cc-number" placeholder="" required>
+              <input type="text" class="form-control" id="cc-number" placeholder="" formControlName="cardNumber">
               <div class="invalid-feedback">
                 Credit card number is required
               </div>
@@ -123,7 +135,7 @@
 
             <div class="col-md-3">
               <label for="cc-expiration" class="form-label">Expiration</label>
-              <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+              <input type="text" class="form-control" id="cc-expiration" placeholder="" formControlName="expiration">
               <div class="invalid-feedback">
                 Expiration date required
               </div>
@@ -131,7 +143,7 @@
 
             <div class="col-md-3">
               <label for="cc-cvv" class="form-label">CVV</label>
-              <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+              <input type="text" class="form-control" id="cc-cvv" placeholder="" formControlName="cvv">
               <div class="invalid-feedback">
                 Security code required
               </div>

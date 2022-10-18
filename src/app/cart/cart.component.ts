@@ -27,6 +27,10 @@ export class CartComponent implements OnInit {
       "lastName": new FormControl(null, Validators.required),
       "username": new FormControl(null, Validators.required),
       "address": new FormControl(null, Validators.required),
+      "cardName": new FormControl(null, Validators.required),
+      "cardNumber": new FormControl(null, Validators.required),
+      "expiration": new FormControl(null, Validators.required),
+      "cvv": new FormControl(null, Validators.required),
       "email": new FormControl(null, [Validators.required, Validators.email]),
     })
   }
@@ -39,4 +43,6 @@ export class CartComponent implements OnInit {
       console.log(this.total);
     })
   }
+
+
 }

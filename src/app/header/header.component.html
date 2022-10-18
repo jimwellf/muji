@@ -19,6 +19,7 @@
 
       <ng-template #itemTemplate let-item>
         <a [routerLink]="'/' + item.category + '/' + item.slug">
+
           <div class="d-flex">
             <div>
               <img [src]="'/assets/products/' + item.category + '/' + item.image" [alt]="item.name" width="60rem">
@@ -26,8 +27,8 @@
             <div class="d-flex flex-direction-column">
               <p>{{ item.name }}</p>
             </div>
-
           </div>
+
         </a>
       </ng-template>
 
@@ -39,7 +40,7 @@
 
     <div class="collapse navbar-collapse" id="navbarResponsive">
 
-      <ul class="navbar-nav mx-2">
+      <ul class="navbar-nav mx-2 text-center">
         <li class="nav-item">
           <a class="nav-link" routerLink="/catalog">Catalog</a>
         </li>

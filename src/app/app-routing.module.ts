@@ -24,6 +24,7 @@ const routes: Routes = [
 
   {path:":category", component: ProductsComponent},
   {path:":category/:slug", component: ProductComponent},
+  {path:"coming-soon", component: HomeComponent},
 
   {path:"page-not-found", component: PagenotfoundComponent},
   {path:"**", redirectTo: "page-not-found"},

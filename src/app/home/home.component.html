@@ -68,10 +68,11 @@
 </div>
 
 <!-- products list -->
-<!-- <div class="row py-2">
-  <div class="d-flex flex-wrap justify-content-between">
-    <div class="product-card-wrapper">
-      <div class="product-card" *ngFor="let product of products">
+<div class="container py-2">
+  <div>
+    <div class="product-card-wrapper d-flex flex-wrap">
+
+      <div class="product-card p-2" *ngFor="let product of products">
 
         <div class="product-card-img-wrapper">
           <a [routerLink]="'/' + product.category + '/' + product.slug" class="text-decoration-none text-secondary">
@@ -89,4 +90,4 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>
