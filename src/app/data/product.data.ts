@@ -5,5 +5,6 @@ export type Product = {
   slug: string,
   description: string,
   image: string,
-  price: number
+  price: number,
+  // quantity: number
 }
