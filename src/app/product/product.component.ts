@@ -20,6 +20,18 @@ export class ProductComponent {
   constructor(private route: ActivatedRoute, private productsService: ProductsService, private router: Router) {
     const { slug } = route?.snapshot.params ?? {}
     this.product =  productsService.searchProduct(slug)
+
+    this.sub = route.params.subscribe( params => {
+      console.log("Parametri sub", params);
+      const { slug } = params
+      this.product = productsService.searchProduct(slug)
+    })
+  }
+
+  ngOnInit(): void {}
+
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe()
   }
 
   onAddCart() {
