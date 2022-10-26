@@ -20,6 +20,21 @@ export class ProductComponent {
   constructor(private route: ActivatedRoute, private productsService: ProductsService, private router: Router) {
     const { slug } = route?.snapshot.params ?? {}
     this.product =  productsService.searchProduct(slug)
+
+    this.sub = route.params.subscribe( params => {
+      const { slug } = params
+      this.product = productsService.searchProduct(slug)
+    })
+
+    if(this.product === undefined) {
+      router.navigateByUrl("/page-not-found")
+    }
+  }
+
+  ngOnInit(): void {}
+
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe()
   }
 
   onAddCart() {

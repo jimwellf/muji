@@ -12,15 +12,20 @@ export class ProductsComponent implements OnInit{
 
   product?: Product
   products:Product[] = []
+
+
   productCategory: string
 
   constructor(private route: ActivatedRoute, private productsService: ProductsService, private router: Router) {
     this.products = productsService.products
     this.productCategory = this.route.snapshot.paramMap.get('category') as string
+    console.log(this.productCategory);
+
+
+    // if(this.productCategory === "page-not-found") {
+    //   router.navigate(["/page-not-found"])
+    // }
    }
 
-   ngOnInit(): void {
-      console.log(this.productCategory);
-   }
-
+   ngOnInit(): void { }
 }

@@ -112,19 +112,11 @@
 
   .product-card {
     margin: 0 .5em;
-    width: calc(100%/2);
-  }
-
-  .product-card-img-wrapper {
-    height: 18vw;
+    width: calc(90%/3);
   }
 
 }
 
-.product-card-img-wrapper img {
-  max-width: 100%;
-  max-height: 100%;
-}
 
 .product-card {
   border: none;

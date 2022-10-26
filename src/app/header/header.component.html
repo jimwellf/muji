@@ -1,60 +1,55 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand mx-2" routerLink="/"> <img src="/assets/muji.png" style="width: 12rem;" alt="MUJI"></a>
+<div class="sticky-top">
 
-    <button class="navbar-toggler mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <div class="container-fluid">
 
-    <div class="container-fluid p-2">
-      <ng-autocomplete
-        #searchbar
-        [data] = "products"
-        [searchKeyword] = "keyword"
-        [itemTemplate] = "itemTemplate"
-        [notFoundTemplate] = "notFoundTemplate"
-        placeholder = "Search"
-        >
-      </ng-autocomplete>
+      <a class="navbar-brand mx-2" routerLink="/">
+        <img src="/assets/muji.png" style="width: 12rem;" alt="MUJI">
+      </a>
 
-      <ng-template #itemTemplate let-item>
-        <a [routerLink]="'/' + item.category + '/' + item.slug">
-          <div class="d-flex">
-            <div>
-              <img [src]="'/assets/products/' + item.category + '/' + item.image" [alt]="item.name" width="60rem">
-            </div>
-            <div class="d-flex flex-direction-column">
-              <p>{{ item.name }}</p>
-            </div>
+      <button class="navbar-toggler mx-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-          </div>
-        </a>
-      </ng-template>
+      <div class="container-fluid p-2">
+        <div>
+          <input type="search" [(ngModel)]="search" class="form-control" placeholder="Search a product">
+        </div>
+      </div>
 
-      <ng-template #notFoundTemplate let-notFound>
-        <div [innerHTML]="notFound"></div>
-      </ng-template>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mx-2 text-center">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/catalog">Catalog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/cart">Cart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/wishlist">Wish</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/profile">Profile</a>
+          </li>
+        </ul>
+      </div>
 
     </div>
+  </nav>
 
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-
-      <ul class="navbar-nav mx-2">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/catalog">Catalog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/cart">Cart</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" routerLink="/wishlist">Wish</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" routerLink="/profile">Profile</a>
-        </li>
-      </ul>
-
+  <div *ngIf=" search != ''">
+    <div *ngFor="let product of products | arrayFilter:search:'slug' ">
+      <div>
+        <button type="button" (click)="onGoProduct(product.category, product.slug)" class="d-flex btn btn-light col-12 align-items-center">
+          <img [src]="'/assets/products/' + product.category + '/' + product.image" [alt]="product.name" class="img-fluid" style="width: 6rem;">
+          <div class="d-flex justify-content-evenly">
+            <p class="text-secondary px-3"> {{ product.name }} </p>
+            <p class="text-secondray"> {{ product.price }} </p>
+          </div>
+        </button>
+      </div>
     </div>
   </div>
-</nav>
+
+</div>
 
