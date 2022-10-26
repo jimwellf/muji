@@ -12,7 +12,6 @@ import { ProductsService } from '../products.service';
 export class ProductComponent {
 
   product?: Product
-  cartProduct?: Product
   sub?: Subscription
 
   products:Product[] = []
@@ -25,10 +24,6 @@ export class ProductComponent {
       const { slug } = params
       this.product = productsService.searchProduct(slug)
     })
-
-    if(this.product === undefined) {
-      router.navigateByUrl("/page-not-found")
-    }
   }
 
   ngOnInit(): void {}
@@ -37,11 +32,17 @@ export class ProductComponent {
     this.sub?.unsubscribe()
   }
 
+  onAddWish() {
+    if(this.product != null) {
+      this.productsService.addToWish(this.product)
+      console.log(this.productsService.wish)
+    }
+  }
+
   onAddCart() {
     if(this.product != null) {
-      this.cartProduct = {id: this.product.id, name: this.product.name, category: this.product.category, slug: this.product.slug, description: this.product.description, image: this.product.image, price: this.product.price }
+      this.productsService.addToCart(this.product)
+      console.log(this.productsService.cart)
     }
-
-    this.productsService.addToCart(this.cartProduct as Product)
   }
 }

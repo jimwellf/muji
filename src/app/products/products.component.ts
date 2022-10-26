@@ -19,13 +19,18 @@ export class ProductsComponent implements OnInit{
   constructor(private route: ActivatedRoute, private productsService: ProductsService, private router: Router) {
     this.products = productsService.products
     this.productCategory = this.route.snapshot.paramMap.get('category') as string
-    console.log(this.productCategory);
-
-
-    // if(this.productCategory === "page-not-found") {
-    //   router.navigate(["/page-not-found"])
-    // }
    }
 
    ngOnInit(): void { }
+
+   onAddWish(product?: Product) {
+    this.productsService.addToWish(product as Product)
+    console.log(this.productsService.wish)
+  }
+
+  onAddCart(product?: Product) {
+    this.productsService.addToCart(product as Product)
+    console.log(this.productsService.cart)
+  }
+
 }

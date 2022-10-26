@@ -13,30 +13,36 @@
     </div>
   </div>
 
-  <div class="row p-2">
-      <ngb-carousel class="carousel-wrapper carousel-fade">
+  <div class="mt-2">
+      <ngb-carousel class="carousel-wrapper carousel-dark carousel-fade">
 
         <ng-template ngbSlide *ngFor="let product of products | productFilter:productCategory">
 
             <div class="card-wrapper">
               <div class="card">
 
-                <div class="row">
+                <div class="d-flex flex-wrap m-5">
 
-                  <div class="col-md-4 image-wrapper my-5">
-                    <a [routerLink]="'/' + product.category + '/' + product.slug">
+                  <div class="image-wrapper">
+                    <a [routerLink]="'/' + product.category + '/' + product.slug" class="w-10" class="d-flex justify-content-center">
                       <img [src]="'/assets/products/' + product.category + '/' + product.image" [alt]="product.name" class="img-fluid">
                     </a>
                   </div>
 
-                  <div class="col-md-6 d-flex align-items-center">
+                  <div class="d-flex align-items-center">
                     <div>
                       <a [routerLink]="'/' + product.category + '/' + product.slug" class="text-decoration-none text-dark">
-                        <h5 class="my-5"> {{ product.name }}</h5>
+                        <h5 class="my-4"> {{ product.name }}</h5>
                       </a>
-                      <p class="text-secondary"> {{ product.description }}</p>
-                      <p class="text-secondary"> {{ product.price }} €</p>
+                      <div>
+                        <p class="text-secondary mw-50"> {{ product.description }}</p>
+                        <p class="text-secondary"> {{ product.price }} €</p>
+                      </div>
 
+                      <div class="d-flex mb-3">
+                        <button class="btn btn-outline-secondary m-1" data-bs-toggle="modal" data-bs-target="#addWish" (click)="onAddWish(product)">Add Wishlist</button>
+                        <button class="btn btn-outline-secondary m-1" data-bs-toggle="modal" data-bs-target="#addCart" (click)="onAddCart(product)">Add Cart</button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -49,24 +55,31 @@
       </ngb-carousel>
   </div>
 
-  <div class="d-flex">
-    <div class="d-flex flex-wrap">
+  <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center">
 
-      <div class="product-card-wrapper d-flex flex-wrap">
+      <div class="product-card-wrapper d-flex justify-content-center flex-wrap">
 
-        <div class="product-card p-5" *ngFor="let product of products | productFilter:productCategory">
+        <div class="product-card p-3 m-1" *ngFor="let product of products | productFilter:productCategory">
 
-          <div class="product-card-img-wrapper">
-            <a [routerLink]="'/' + product.category + '/' + product.slug" class="text-decoration-none text-secondary">
+          <div class="product-card-img-wrapper d-flex justify-content-center">
+            <a [routerLink]="'/' + product.category + '/' + product.slug" class="text-decoration-none text-secondary d-flex justify-content-center mw-50">
               <img [src]="'/assets/products/' + product.category + '/' + product.image" [alt]="product.name" class="img-fluid">
             </a>
           </div>
 
           <div class="product-card-body">
+
             <a [routerLink]="'/' + product.category + '/' + product.slug" class="text-decoration-none text-secondary">
-              <h5 class="mx-5"> {{ product.name }} </h5>
+              <h5> {{ product.name }} </h5>
             </a>
-            <p class="mx-5 pb-5 text-secondary">€ {{ product.price }} </p>
+            <p class="text-secondary">€ {{ product.price }} </p>
+
+            <div class="mb-2">
+              <button class="btn btn-outline-secondary m-1" data-bs-toggle="modal" data-bs-target="#addWish" (click)="onAddWish(product)">Add Wishlist</button>
+              <button class="btn btn-outline-secondary m-1" data-bs-toggle="modal" data-bs-target="#addCart" (click)="onAddCart(product)">Add Cart</button>
+            </div>
+
           </div>
 
         </div>

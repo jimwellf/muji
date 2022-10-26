@@ -84,10 +84,60 @@
           <a [routerLink]="'/' + product.category + '/' + product.slug" class="text-decoration-none text-secondary">
             <h5 class="mx-5"> {{ product.name }} </h5>
           </a>
-          <p class="mx-5 pb-5 text-secondary">€ {{ product.price }} </p>
+          <p class="mx-5 pb-1 text-secondary">€ {{ product.price }} </p>
+        </div>
+
+        <div class="d-flex justify-content-center mb-3">
+          <button class="btn btn-outline-secondary m-1" data-bs-toggle="modal" data-bs-target="#addWish" (click)="onAddWish(product)">Add Wishlist</button>
+          <button class="btn btn-outline-secondary m-1" data-bs-toggle="modal" data-bs-target="#addCart" (click)="onAddCart(product)">Add Cart</button>
         </div>
 
       </div>
+
+      <div class="modal fade" id="addWish" tabindex="-1" aria-labelledby="addWish" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header d-flex justify-content-center">
+              <h5 class="modal-title" id="payment">Success!</h5>
+            </div>
+
+            <div class="modal-body text-center">
+              The product has been added to your Wishlist.
+            </div>
+
+            <div class="modal-footer d-flex justify-content-center">
+              <button type="button" class="btn btn-secondary outline-dark" data-bs-dismiss="modal" routerLink="/">Home</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Confirm</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" routerLink="/wishlist">Wishlist</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="modal fade" id="addCart" tabindex="-1" aria-labelledby="addCart" aria-hidden="true">
+
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header d-flex justify-content-center">
+              <h5 class="modal-title" id="payment">Success!</h5>
+            </div>
+
+            <div class="modal-body text-center">
+              The product has been added to your Cart.
+            </div>
+
+            <div class="modal-footer d-flex justify-content-center">
+              <button type="button" class="btn btn-secondary outline-dark" data-bs-dismiss="modal" routerLink="/">Home</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Confirm</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" routerLink="/cart">Cart</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   </div>
 </div>

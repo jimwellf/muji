@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { CartComponent } from './cart/cart.component';
-import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { CatalogComponent } from './catalog/catalog.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
@@ -27,7 +26,6 @@ import { ProductFilterPipe } from './product-filter.pipe';
     AppComponent,
     HeaderComponent,
     CartComponent,
-    ProfileComponent,
     HomeComponent,
     CatalogComponent,
     WishlistComponent,

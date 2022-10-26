@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../data/product.data';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WishlistComponent implements OnInit {
 
-  constructor() { }
+  products: Product[] = []
 
-  ngOnInit(): void {
+  constructor(private productsService: ProductsService) {
+    this.products = productsService.wish
   }
 
+  ngOnInit(): void {}
+
+  onAddCart(product: Product) {
+    this.productsService.addToCart(product)
+  }
 }
