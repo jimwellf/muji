@@ -22,10 +22,13 @@ export class ProductComponent {
     this.product =  productsService.searchProduct(slug)
 
     this.sub = route.params.subscribe( params => {
-      console.log("Parametri sub", params);
       const { slug } = params
       this.product = productsService.searchProduct(slug)
     })
+
+    if(this.product === undefined) {
+      router.navigateByUrl("/page-not-found")
+    }
   }
 
   ngOnInit(): void {}

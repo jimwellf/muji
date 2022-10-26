@@ -21,10 +21,10 @@ const routes: Routes = [
   {path:"signup", component: SignupComponent},
   {path:"wishlist", component: WishlistComponent},
   {path:"profile", component: ProfileComponent},
+  {path:"coming-soon", component: HomeComponent},
 
   {path:":category", component: ProductsComponent},
   {path:":category/:slug", component: ProductComponent},
-  {path:"coming-soon", component: HomeComponent},
 
   {path:"page-not-found", component: PagenotfoundComponent},
   {path:"**", redirectTo: "page-not-found"},

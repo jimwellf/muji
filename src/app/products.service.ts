@@ -27,6 +27,7 @@ export class ProductsService {
   ]
 
   private _cart: Product[] = []
+  private _wish: Product[] = []
 
   constructor() {
   }
@@ -35,8 +36,16 @@ export class ProductsService {
     this._cart.push(product)
   }
 
+  addToWish(product: Product) {
+    this._wish.push(product)
+  }
+
   removeFromCart(product: Product) {
     this._cart = this._cart.filter(p => p !== product)
+  }
+
+  removeFromWish(product: Product) {
+    this._wish = this._wish.filter(p => p !== product)
   }
 
   searchProduct(slug: string) {
@@ -49,6 +58,10 @@ export class ProductsService {
 
   get cart() {
     return [...this._cart]
+  }
+
+  get wish() {
+    return [...this._wish]
   }
 
 }
