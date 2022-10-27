@@ -29,7 +29,7 @@
         <div>
           <h5 class="mt-5"> {{ product?.name }}</h5>
           <p class="text-secondary"> {{ product?.description }}</p>
-          <p class="text-secondary my-5"> {{ product?.price }} €</p>
+          <p class="text-secondary my-5"> {{ product?.price | currency: 'EUR' }}</p>
 
           <div class="d-flex mb-3">
             <button class="btn btn-outline-secondary m-1" data-bs-toggle="modal" data-bs-target="#addWish" (click)="onAddWish()">Add Wishlist</button>

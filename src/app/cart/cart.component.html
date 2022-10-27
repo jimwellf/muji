@@ -30,12 +30,12 @@
               <small class="text-muted"> {{ product.description }}</small>
             </div>
 
-            <span class="text-muted"> {{ product.price }}</span>
+            <span class="text-muted"> {{ product.price | currency: 'EUR' }}</span>
           </li>
 
           <li class="list-group-item d-flex justify-content-between">
             <span>Total (EUR)</span>
-            <strong>€ {{ total }}</strong>
+            <strong> {{ total | currency: 'EUR' }} </strong>
           </li>
         </ul>
       </div>
